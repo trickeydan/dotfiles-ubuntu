@@ -4,6 +4,6 @@
     state: absent
   with_items:
     - nano
-    - byobyu
+    - byobu
     - rxvt-unicode
     
