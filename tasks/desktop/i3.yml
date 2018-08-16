@@ -1,0 +1,21 @@
+- name: Install i3wm
+  apt:
+    name: i3
+    state: latest
+    update_cache: true
+- name: Install xinit
+  apt:
+    name: xinit
+    state: latest
+    update_cache: true
+- name: Install Xorg
+  apt:
+    name: xorg
+    state: latest
+    update_cache: true
+- name: Install X Server
+  apt:
+    name: xserver-xorg
+    state: latest
+    update_cache: true
+
