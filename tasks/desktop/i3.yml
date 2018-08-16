@@ -18,4 +18,38 @@
     name: xserver-xorg
     state: latest
     update_cache: true
+- name: Install Mesa Utils
+  apt:
+    name: mesa-utils
+    state: latest
+    update_cache: true
+- name: Install Extra Mesa Utils
+  apt:
+    name: mesa-utils-extra
+    state: latest
+    update_cache: true
 
+- name: Install rofi
+  apt:
+    name: rofi
+    state: latest
+    update_cache: true
+- name: Install xautolock
+  apt:
+    name: xautolock
+    state: latest
+    update_cache: true
+- name: Install feh
+  apt:
+    name: feh
+    state: latest
+    update_cache: true
+
+
+- name: Copy i3 config from repo
+  copy:
+    src: ./files/desktop/i3-config
+    dest: /home/dan/.config/i3/config
+    owner: dan
+    group: dan
+    mode: 0777
