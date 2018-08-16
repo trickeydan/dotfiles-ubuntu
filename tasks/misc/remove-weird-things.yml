@@ -1,0 +1,8 @@
+- name: Remove shit
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - byobyu
+    - rxvt-unicode
+    
