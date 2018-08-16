@@ -4,5 +4,6 @@
   become_user: root
   tasks:
     - import_tasks: tasks/misc/no-nano.yml
+    - import_tasks: tasks/desktop/arandr.yml
     - import_tasks: tasks/desktop/i3.yml
     - import_tasks: tasks/utilities/git.yml

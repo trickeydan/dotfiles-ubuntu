@@ -1,0 +1,5 @@
+- name: Install ARandR
+  apt:
+    name: arandr
+    state: latest
+    update_cache: true
