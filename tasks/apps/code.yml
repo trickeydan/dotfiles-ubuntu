@@ -1,5 +1,8 @@
-- name: Install git
+- name: Install Code Applications
   apt:
-    name: git
+    name: "{{ item }}"
     state: latest
     update_cache: true
+  with_items:
+    - git
+    - vim

@@ -5,3 +5,5 @@
     update_cache: true
   with_items:
     - arandr
+    - nautilus
+    - gnome-terminal
