@@ -13,6 +13,7 @@
     - rofi
     - xautolock
     - feh
+    - fonts-noto-color-emoji
 
 - name: Create config directories
   file: path=/home/dan/{{ item }} state=directory
@@ -22,31 +23,17 @@
     - .config/i3status
     - .config/rofi
 
-- name: Copy i3 config from repo
+- name: Copy config from repo
   copy:
-    src: ./files/desktop/i3/{{ item }}
-    dest: /home/dan/.config/i3/{{ item }}
+    src: ./files/desktop/{{ item }}
+    dest: /home/dan/.config/{{ item }}
     owner: dan
     group: dan
     mode: 0644
   with_items:
-    - config
-    - pranklock.sh
-    - pranklock2.sh
-    - desktop.png
-
-- name: Copy i3status config from repo
-  copy:
-    src: ./files/desktop/i3status-config
-    dest: /home/dan/.config/i3status/config
-    owner: dan
-    group: dan
-    mode: 0644
-- name: Copy rofi config from repo
-  copy:
-    src: ./files/desktop/rofi-config
-    dest: /home/dan/.config/rofi/config
-    owner: dan
-    group: dan
-    mode: 0644
-
+    - i3/config
+    - i3/pranklock.sh
+    - i3/pranklock2.sh
+    - i3/desktop.png
+    - i3status/config
+    - rofi/config

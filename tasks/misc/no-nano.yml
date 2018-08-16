@@ -1,5 +1,0 @@
-- name: Remove nano
-  apt:
-    name: nano
-    state: absent
- 

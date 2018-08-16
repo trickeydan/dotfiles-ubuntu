@@ -1,8 +1,9 @@
-- name: Remove shit
+- name: Remove unwanted things from Ubuntu Server
   apt:
     name: "{{ item }}"
     state: absent
   with_items:
+    - nano
     - byobyu
     - rxvt-unicode
     
