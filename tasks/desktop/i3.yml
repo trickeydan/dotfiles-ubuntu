@@ -45,6 +45,18 @@
     state: latest
     update_cache: true
 
+- name: Create config directory
+  file: path=/home/dan/.config state=directory
+
+- name: Create i3 config directory
+  file: path=/home/dan/.config/i3 state=directory
+
+- name: Create i3status config directory
+  file: path=/home/dan/.config/i3status state=directory
+
+- name: Create Rofi config directory
+  file: path=/home/dan/.config/rofi state=directory
+
 
 - name: Copy i3 config from repo
   copy:
@@ -52,4 +64,42 @@
     dest: /home/dan/.config/i3/config
     owner: dan
     group: dan
-    mode: 0777
+    mode: 0644
+
+- name: Copy i3status config from repo
+  copy:
+    src: ./files/desktop/i3status-config
+    dest: /home/dan/.config/i3status/config
+    owner: dan
+    group: dan
+    mode: 0644
+- name: Copy rofi config from repo
+  copy:
+    src: ./files/desktop/rofi-config
+    dest: /home/dan/.config/rofi/config
+    owner: dan
+    group: dan
+    mode: 0644
+- name: Copy Desktop Background from repo
+  copy:
+    src: ./files/desktop/desktop.png
+    dest: /home/dan/.config/i3/desktop.png
+    owner: dan
+    group: dan
+    mode: 0644
+- name: Copy Prank Lock from repo
+  copy:
+    src: ./files/desktop/pranklock.sh
+    dest: /home/dan/.config/i3/pranklock.sh
+    owner: dan
+    group: dan
+    mode: 0644
+- name: Copy Prank Lock 2 from repo
+  copy:
+    src: ./files/desktop/pranklock2.sh
+    dest: /home/dan/.config/i3/pranklock2.sh
+    owner: dan
+    group: dan
+    mode: 0644
+
+
