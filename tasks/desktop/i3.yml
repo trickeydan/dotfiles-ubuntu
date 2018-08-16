@@ -1,70 +1,39 @@
-- name: Install i3wm
+- name: Install Desktop Packages
   apt:
-    name: i3
+    name: "{{ item }}"
     state: latest
     update_cache: true
-- name: Install xinit
-  apt:
-    name: xinit
-    state: latest
-    update_cache: true
-- name: Install Xorg
-  apt:
-    name: xorg
-    state: latest
-    update_cache: true
-- name: Install X Server
-  apt:
-    name: xserver-xorg
-    state: latest
-    update_cache: true
-- name: Install Mesa Utils
-  apt:
-    name: mesa-utils
-    state: latest
-    update_cache: true
-- name: Install Extra Mesa Utils
-  apt:
-    name: mesa-utils-extra
-    state: latest
-    update_cache: true
+  with_items:
+    - i3
+    - xinit
+    - xorg
+    - xserver-xorg
+    - mesa-utils
+    - mesa-utils-extra
+    - rofi
+    - xautolock
+    - feh
 
-- name: Install rofi
-  apt:
-    name: rofi
-    state: latest
-    update_cache: true
-- name: Install xautolock
-  apt:
-    name: xautolock
-    state: latest
-    update_cache: true
-- name: Install feh
-  apt:
-    name: feh
-    state: latest
-    update_cache: true
-
-- name: Create config directory
-  file: path=/home/dan/.config state=directory
-
-- name: Create i3 config directory
-  file: path=/home/dan/.config/i3 state=directory
-
-- name: Create i3status config directory
-  file: path=/home/dan/.config/i3status state=directory
-
-- name: Create Rofi config directory
-  file: path=/home/dan/.config/rofi state=directory
-
+- name: Create config directories
+  file: path=/home/dan/{{ item }} state=directory
+  with_items:
+    - .config
+    - .config/i3
+    - .config/i3status
+    - .config/rofi
 
 - name: Copy i3 config from repo
   copy:
-    src: ./files/desktop/i3-config
-    dest: /home/dan/.config/i3/config
+    src: ./files/desktop/i3/{{ item }}
+    dest: /home/dan/.config/i3/{{ item }}
     owner: dan
     group: dan
     mode: 0644
+  with_items:
+    - config
+    - pranklock.sh
+    - pranklock2.sh
+    - desktop.png
 
 - name: Copy i3status config from repo
   copy:
@@ -80,26 +49,4 @@
     owner: dan
     group: dan
     mode: 0644
-- name: Copy Desktop Background from repo
-  copy:
-    src: ./files/desktop/desktop.png
-    dest: /home/dan/.config/i3/desktop.png
-    owner: dan
-    group: dan
-    mode: 0644
-- name: Copy Prank Lock from repo
-  copy:
-    src: ./files/desktop/pranklock.sh
-    dest: /home/dan/.config/i3/pranklock.sh
-    owner: dan
-    group: dan
-    mode: 0644
-- name: Copy Prank Lock 2 from repo
-  copy:
-    src: ./files/desktop/pranklock2.sh
-    dest: /home/dan/.config/i3/pranklock2.sh
-    owner: dan
-    group: dan
-    mode: 0644
-
 
