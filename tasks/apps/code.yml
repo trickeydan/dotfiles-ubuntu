@@ -6,3 +6,8 @@
   with_items:
     - git
     - vim
+- name: Setup Git
+  command: "{{ item }}"
+  with_items:
+    - git config --global user.email "dan@trickey.io"
+    - git config --global user.name "Dan Trickey"

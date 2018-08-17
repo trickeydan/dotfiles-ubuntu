@@ -1,0 +1,8 @@
+- name: Install General Desktop Programs
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - chromium-browser
+    - chromium-ublock-origin

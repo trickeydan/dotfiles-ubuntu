@@ -1,0 +1,13 @@
+- name: Install YubiKey Software
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - gnupg2
+    - gnupg-agent
+    - pinentry-gtk2
+    - scdaemon
+    - pcscd
+    - yubikey-personalization
+    - libusb-1.0-0-dev
