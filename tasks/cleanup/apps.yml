@@ -1,0 +1,5 @@
+- name: Set config owner
+  command: sudo chown -R dan:dan ~/.config/
+- name: Remove unneeded dependancies
+  apt:
+    autoremove: yes
