@@ -146,6 +146,7 @@ exec --no-startup-id /usr/bin/xfce4-power-manager
 exec --no-startup-id /usr/bin/xinput set-prop 13 "Synaptics Area" 200, 1000, 1, 927
 
 exec --no-startup-id feh --bg-fill ~/.config/i3/desktop.png
+exec --no-startup-id wicd-client --tray
 
 #Auto Screen Lock
 exec --no-startup-id xautolock -time 5 -locker "i3lock -i /home/dan/.config/i3/desktop.png"
