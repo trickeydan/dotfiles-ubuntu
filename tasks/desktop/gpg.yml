@@ -6,8 +6,28 @@
   with_items:
     - gnupg2
     - gnupg-agent
-    - pinentry-gtk2
     - scdaemon
     - pcscd
     - yubikey-personalization
     - libusb-1.0-0-dev
+
+- name: Create GPG Directory
+  file:
+    path: /home/dan/.gnupg
+    state: directory
+
+- name: Copy GPG Config
+  copy:
+    src: ./files/desktop/gpg/gpg.conf
+    dest: /home/dan/.gnupg/gpg.conf
+    owner: dan
+    group: dan
+    mode: 0600
+
+- name: Get GPG Public Keys
+  command: gpg --recv "{{ item }}"
+  with_items:
+    - D5236EF584F708EE
+- name: Trust GPG Public Keys
+  command: gpg --import-ownertrust ./files/desktop/gpg/trust
+
