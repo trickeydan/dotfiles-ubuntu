@@ -1,0 +1,15 @@
+- name: Install Plymouth Theme
+  apt:
+    name: plymouth-theme-ubuntu-logo
+    state: latest
+    update_cache: true
+- name: Copy Grub Config
+  copy:
+    src: ./files/desktop/grub
+    dest: /etc/default/grub
+    owner: root
+    group: root
+    mode: 0644
+- name: Update Grub
+  command: sudo update-grub
+

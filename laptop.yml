@@ -5,5 +5,7 @@
   tasks:
     - import_tasks: tasks/os/ubuntu-server-1804.yml
     - import_tasks: tasks/desktop/i3.yml
+    - import_tasks: tasks/desktop/lightdm.yml
+    - import_tasks: tasks/desktop/plymouth.yml
     - import_tasks: tasks/apps/code.yml
     - import_tasks: tasks/apps/utilities.yml
