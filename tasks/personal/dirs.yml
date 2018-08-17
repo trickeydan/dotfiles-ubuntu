@@ -1,0 +1,11 @@
+- name: Create Home directories
+  file:
+    path: "/home/dan/{{ item }}"
+    state: directory
+  with_items:
+    - Documents
+    - Code
+    - Desktop
+    - Downloads
+    - Pictures
+
