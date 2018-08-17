@@ -39,10 +39,3 @@
     - i3status/config
     - rofi/config
 
-- name: Copy screenlayouts
-  copy:
-    src: ./files/desktop/screenlayout
-    dest: /home/dan/.screenlayout
-    user: dan
-    group: dan
-    mode: 0644
