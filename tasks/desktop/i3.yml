@@ -14,6 +14,7 @@
     - xautolock
     - feh
     - fonts-noto-color-emoji
+    - wicd
 
 - name: Create config directories
   file: path=/home/dan/{{ item }} state=directory
