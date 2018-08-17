@@ -11,3 +11,4 @@
   with_items:
     - git config --global user.email "dan@trickey.io"
     - git config --global user.name "Dan Trickey"
+    - git config --global commit.gpgsign true
