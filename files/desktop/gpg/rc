@@ -1,0 +1,4 @@
+export GPG_TTY=/dev/pts/0
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+gpgconf --launch gpg-agent
+

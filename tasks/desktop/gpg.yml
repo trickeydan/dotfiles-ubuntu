@@ -23,6 +23,13 @@
     owner: dan
     group: dan
     mode: 0600
+- name: Copy GPG-Agent Config
+  copy:
+   src: ./files/desktop/gpg/gpg-agent.conf
+   dest: /home/dan/.gnupg/gpg-agent.conf
+   owner: dan
+   group: dan
+   mode: 0644
 
 - name: Get GPG Public Keys
   command: gpg --recv "{{ item }}"
@@ -31,3 +38,5 @@
 - name: Trust GPG Public Keys
   command: gpg --import-ownertrust ./files/desktop/gpg/trust
 
+- name: Add GPG-Agent to .bashrc
+  command: cat ./files/desktop/gpg/rc >> /home/dan/.bashrc
