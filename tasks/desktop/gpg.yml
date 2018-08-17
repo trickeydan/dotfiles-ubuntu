@@ -38,5 +38,10 @@
 - name: Trust GPG Public Keys
   command: gpg --import-ownertrust ./files/desktop/gpg/trust
 
-- name: Add GPG-Agent to .bashrc
-  command: cat ./files/desktop/gpg/rc >> /home/dan/.bashrc
+- name: Copy .bashrc
+  copy:
+    src: ./files/desktop/bashrc
+    dest: /home/dan/.bashrc
+    owner: dan
+    group: dan
+    mode: 0755
