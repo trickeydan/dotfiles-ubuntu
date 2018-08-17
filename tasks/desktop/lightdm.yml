@@ -6,3 +6,10 @@
   with_items:
     - lightdm
     - lightdm-gtk-greeter
+- name: Copy LightDM config
+  copy:
+    src: ./files/desktop/lightdm/lightdm-gtk-greeter.conf
+    dest: /etc/lightdm/lightdm-gtk-greeter.conf
+    user: root
+    group: root
+    mode: 0644
