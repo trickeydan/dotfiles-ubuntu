@@ -6,3 +6,17 @@
   with_items:
     - chromium-browser
     - chromium-ublock-origin
+- name: Install General Desktop Snaps
+  become: yes
+  become_user: root
+  command: "snap install {{ item }}" 
+  with_items:
+    - mailspring
+    - slack --classic
+    - vscode --classic
+    - spotify
+    - slack --classic
+    - intellij-idea-ultimate --classic
+    - pycharm-professional --classic
+    - phpstorm --classic
+    - inkscape
