@@ -17,6 +17,12 @@
     - wicd
     - xfce4-power-manager
 
+- name: Install .deb packages
+  apt:
+    deb: "{{ item }}"
+  with_items:
+    - https://github.com/acrisci/playerctl/releases/download/v0.6.1/playerctl-0.6.1_amd64.deb
+
 - name: Create config directories
   file: path=/home/dan/{{ item }} state=directory
   with_items:
