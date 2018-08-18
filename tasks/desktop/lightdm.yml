@@ -6,3 +6,10 @@
   with_items:
     - lightdm
     - lightdm-gtk-greeter
+
+- name: Update LightDM Config
+  lineinfile:
+    path: /etc/lightdm/lightdm-gtk-greeter.conf
+    state: present
+    insertafter: [greeter]
+    line: "background=/home/dan/.config/i3/desktop.png"
