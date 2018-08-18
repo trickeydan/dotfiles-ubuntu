@@ -1,0 +1,9 @@
+- name: Install Alsa
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - alsa-base
+    - alsa-utils
+    - pulseaudio
