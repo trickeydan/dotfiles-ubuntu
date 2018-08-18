@@ -15,6 +15,7 @@
     - feh
     - fonts-noto-color-emoji
     - wicd
+    - xfce4-power-manager
 
 - name: Create config directories
   file: path=/home/dan/{{ item }} state=directory
@@ -40,3 +41,28 @@
     - i3status/config
     - rofi/config
 
+- name: Install Build Things
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - automake
+    - autoconf
+    - make
+    - gcc
+ 
+- name: Clone Light Repo
+  git:
+    repo: "https://github.com/haikarainen/light.git"
+    dest: ~/.config/light
+    clone: yes
+
+- name: Install Light
+  command: "{{ item }}"
+  args:
+    chdir: ~/.config/light
+  with_items:
+    - ./autogen.sh
+    - ./configure && make
+    - sudo make install
