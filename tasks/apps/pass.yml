@@ -1,0 +1,45 @@
+- name: Install Pass
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - pass
+    - qtpass
+
+- name: Clone Rofi-Pass
+  git:
+    repo: "https://github.com/carnager/rofi-pass.git"
+    dest: ~/.config/rofi-pass
+    clone: yes
+
+- name: Install Rofi-Pass
+  command: "{{ item }}"
+  args:
+    chdir: ~/.config/rofi-pass
+  with_items:
+    - sudo make install
+
+- name: Ensure .ssh directory exists.
+  file: 
+    dest: "/home/dan/.ssh"
+    mode: 0700 
+    owner: dan
+    state: directory
+
+- name: Install ssh key
+  copy: 
+    src: ./files/id_rsa
+    dest: "/home/dan/.ssh/id_rsa"
+    mode: 0600
+    owner: dan
+
+- name: Clone Password Store
+  git:
+    repo: ssh://git@github.com/trickeydan/password-store.git
+    dest: /home/dan/.password-store
+    clone: yes
+    update: yes
+    accept_hostkey: yes
+    force: yes
+    key_file: /home/dan/.ssh/id_rsa
