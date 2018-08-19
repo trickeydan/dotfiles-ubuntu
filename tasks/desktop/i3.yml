@@ -17,6 +17,7 @@
     - wicd
     - xfce4-power-manager
     - libnotify-bin
+    - jq
 
 - name: Install .deb packages
   apt:
@@ -42,11 +43,21 @@
     mode: 0644
   with_items:
     - i3/config
-    - i3/pranklock.sh
-    - i3/pranklock2.sh
     - i3/desktop.png
     - i3status/config
     - rofi/config
+
+- name: Copy scripts for i3
+  copy:
+    src: ./files/desktop/{{ item }}
+    dest: /home/dan/.config/{{ item }}
+    owner: dan
+    group: dan
+    mode: 0744
+  with_items:
+    - i3/pranklock.sh
+    - i3/pranklock2.sh
+    - i3/swap.sh
 
 - name: Copy screenlayouts
   copy:
