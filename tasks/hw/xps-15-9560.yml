@@ -1,0 +1,14 @@
+- name: Install BumbleBee
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - bbswitch-dkms
+    - bumblebee
+
+- name: Enable BumbleBee
+  systemd:
+    name: bumblebeed
+    enabled: yes
+    state: started
