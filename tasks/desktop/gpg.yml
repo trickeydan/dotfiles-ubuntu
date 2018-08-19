@@ -32,7 +32,7 @@
    mode: 0644
 
 - name: Get GPG Public Keys
-  command: gpg --recv "{{ item }}"
+  command: gpg --keyserver pgp.surfnet.nl --recv "{{ item }}"
   with_items:
     - D5236EF584F708EE
 - name: Trust GPG Public Keys
