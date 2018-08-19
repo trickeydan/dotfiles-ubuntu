@@ -48,6 +48,14 @@
     - i3status/config
     - rofi/config
 
+- name: Copy screenlayouts
+  copy:
+    src: "{{ item }}"
+    dest: /home/dan/.screenlayout
+    owner: dan
+    mode: 744
+  with_fileglob:
+    - ./files/desktop/screenlayout/*.sh
 - name: Install Build Things
   apt:
     name: "{{ item }}"
