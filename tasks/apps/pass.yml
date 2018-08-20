@@ -6,6 +6,7 @@
   with_items:
     - pass
     - qtpass
+    - xdotool
 
 - name: Clone Rofi-Pass
   git:

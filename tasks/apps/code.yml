@@ -6,9 +6,13 @@
   with_items:
     - git
     - vim
+    
 - name: Setup Git
-  command: "{{ item }}"
-  with_items:
-    - git config --global user.email "dan@trickey.io"
-    - git config --global user.name "Dan Trickey"
-    - git config --global commit.gpgsign true
+  git_config:
+    scope: global
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_dict:
+    "user.email": "dan@trickey.io"
+    "user.name": "Dan Trickey"
+    "commit.gpgsign": true
