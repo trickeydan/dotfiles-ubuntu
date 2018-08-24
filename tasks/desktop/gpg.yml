@@ -22,7 +22,7 @@
     dest: /home/dan/.gnupg/gpg.conf
     owner: dan
     group: dan
-    mode: 0600
+    mode: 0700
 - name: Copy GPG-Agent Config
   copy:
    src: ./files/desktop/gpg/gpg-agent.conf
@@ -32,9 +32,10 @@
    mode: 0644
 
 - name: Get GPG Public Keys
-  command: gpg --keyserver pgp.surfnet.nl --recv "{{ item }}"
+  command: gpg --keyserver eu.pool.sks-keyservers.net --recv "{{ item }}"
   with_items:
     - D5236EF584F708EE
+
 - name: Trust GPG Public Keys
   command: gpg --import-ownertrust ./files/desktop/gpg/trust
 
