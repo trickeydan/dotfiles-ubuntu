@@ -9,6 +9,7 @@
     - import_tasks: tasks/desktop/lightdm.yml
     - import_tasks: tasks/desktop/plymouth.yml
     - import_tasks: tasks/desktop/gpg.yml
+    - import_tasks: tasks/desktop/grub.yml
     - import_tasks: tasks/desktop/media.yml
     - import_tasks: tasks/apps/code.yml
     - import_tasks: tasks/apps/general.yml
