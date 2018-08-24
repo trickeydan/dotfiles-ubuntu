@@ -7,6 +7,7 @@
     - chromium-browser
     - chromium-ublock-origin
     - steam
+    - vlc
 - name: Install General Desktop Snaps
   become: yes
   become_user: root
