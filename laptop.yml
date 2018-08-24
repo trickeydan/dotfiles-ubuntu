@@ -5,6 +5,7 @@
   tasks:
     - import_tasks: tasks/os/ubuntu-server-1804.yml
     - import_tasks: tasks/hw/xps-15-9560.yml
+    - import_tasks: tasks/desktop/sh/fish.yml
     - import_tasks: tasks/desktop/i3.yml
     - import_tasks: tasks/desktop/lightdm.yml
     - import_tasks: tasks/desktop/plymouth.yml

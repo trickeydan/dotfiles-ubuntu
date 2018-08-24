@@ -1,0 +1,9 @@
+- name: Install the Friendly Interactive SHell
+  apt:
+    name: fish
+    state: latest
+
+- name: Change the default shell to fish
+  user:
+    name: dan
+    shell: /usr/bin/fish
