@@ -11,6 +11,7 @@
     - import_tasks: tasks/desktop/gpg.yml
     - import_tasks: tasks/desktop/grub.yml
     - import_tasks: tasks/desktop/media.yml
+    - import_tasks: tasks/desktop/print.yml
     - import_tasks: tasks/apps/code.yml
     - import_tasks: tasks/apps/general.yml
     - import_tasks: tasks/apps/pass.yml

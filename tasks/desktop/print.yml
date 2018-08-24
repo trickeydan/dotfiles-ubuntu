@@ -1,0 +1,13 @@
+- name: Install CUPS
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - cups
+    - system-config-printer
+
+- name: Add user to CUPS groups
+  user:
+    name: dan
+    groups: lp, lpadmin
+    append: yes
