@@ -1,0 +1,8 @@
+- name: Install Network Requirements
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items:
+    - network-manager
+    - network-manager-gnome

@@ -14,7 +14,6 @@
     - xautolock
     - feh
     - fonts-noto-color-emoji
-    - wicd
     - xfce4-power-manager
     - libnotify-bin
     - jq
