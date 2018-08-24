@@ -2,6 +2,11 @@
   become: yes
   become_user: root
   command: chown -R dan:dan ~/
+
 - name: Remove unneeded dependencies
   apt:
     autoremove: yes
+
+- name: Restart i3
+  command: i3-msg restart
+  ignore_errors: yes

@@ -6,3 +6,20 @@
   with_items:
     - network-manager
     - network-manager-gnome
+    - ifupdown
+
+- name: Copy Network Config
+  copy:
+    src: "{{ item }}"
+    dest: /etc/NetworkManager/system-connections/
+    owner: root
+    group: root
+    mode: 0755
+  with_fileglob:
+    - ./files/desktop/network/*
+
+- name: Enable NetworkManager
+  systemd:
+    name: NetworkManager
+    state: restarted
+    enabled: yes
