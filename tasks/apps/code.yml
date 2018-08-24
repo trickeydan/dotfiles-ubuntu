@@ -6,6 +6,9 @@
   with_items:
     - git
     - vim
+    - python3-pip
+    - pandoc
+    - texlive
     
 - name: Setup Git
   git_config:
@@ -16,3 +19,8 @@
     "user.email": "dan@trickey.io"
     "user.name": "Dan Trickey"
     "commit.gpgsign": true
+
+- name: Install Pipenv
+  pip:
+    name: pipenv
+    executable: pip3

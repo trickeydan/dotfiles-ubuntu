@@ -6,6 +6,7 @@
   with_items:
     - chromium-browser
     - chromium-ublock-origin
+    - steam
 - name: Install General Desktop Snaps
   become: yes
   become_user: root

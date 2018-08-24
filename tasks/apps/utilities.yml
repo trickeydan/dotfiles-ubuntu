@@ -9,3 +9,5 @@
     - gnome-terminal
     - pavucontrol 
     - powertop
+    - sshfs
+    - nmap
