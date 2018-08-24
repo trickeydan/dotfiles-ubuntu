@@ -11,5 +11,7 @@
     group: root
     mode: 0644
 - name: Update Grub
-  command: sudo update-grub
+  become: yes
+  become_user: root
+  command: update-grub
 

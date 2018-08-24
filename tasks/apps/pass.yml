@@ -18,8 +18,10 @@
   command: "{{ item }}"
   args:
     chdir: ~/.config/rofi-pass
+  become: yes
+  become_user: root
   with_items:
-    - sudo make install
+    - make install
 
 - name: Ensure .ssh directory exists.
   file: 
